@@ -19,10 +19,6 @@ echo "Setuid files:"
 echo "============="
 find / -type f -executable -perm -4000 -ls 2>/dev/null | sort -k 5
 echo ""
-ps
-history
-cat helloworldtemplated.sh
-
 
 # for the task, add
 # commands to display a title
