@@ -75,13 +75,13 @@
 #   External IP     : $myExternalIP
 #   External Name   : $myExternalName
 HOSTNAME=$(hostname)
-INTERFACE_NAME=$(ip a |awk '/: e/{gsub(/:/,"");print $2}')
-LANADDRESS=$(ip a s $INTERFACE_NAME |awk '/inet /{gsub(/\/.*/,"");print $2}')
+INTERFACE_NAME=$(ip a | awk '/: e/{gsub(/:/,"");print $2}')
+LANADDRESS=$(ip a s $INTERFACE_NAME | awk '/inet /{gsub(/\/.*/,"");print $2}')
 LANHOSTNAME=$(getent hosts $LANADDRESS | awk '{print $2}')
 EXTERNALIP=$(curl -s icanhazip.com)
 EXTERNALNAME=$(getent hosts $EXTERNALIP | awk '{print $2}')
 ROUTEADDRESS=$(ip r s default| awk '{print $3}')
-ROUTEHOSTNAME=$(ip r |grep "default" |awk '{ print $2}')
+ROUTEHOSTNAME=$(ip r | grep "default" | awk '{ print $2}')
 cat <<EOF
 Hostname        : $HOSTNAME
 LAN Address     : $LANADDRESS
