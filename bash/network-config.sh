@@ -64,6 +64,8 @@
 #    then use the variable in any command that needs that data
 #
 #   myExternalIP=$(curl -s icanhazip.com)
+
+
 #
 #    then use the variable in any command that needs that data (that had that command pipeline in parentheses)
 #
