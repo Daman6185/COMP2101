@@ -1,1 +1,1 @@
-﻿ get-ciminstance win32_networkadapterconfiguration -FILTER IPenabled=$true | format-table description, dnsserverchorder, dnsdomain, index, IPAddress, IPSubnet
+﻿  gwmi -class win32_networkadapterconfiguration -filter ipenabled=true | where { $_.dnsdomain -ne $null -or $_.dnshostname -ne $null -or $_.dnsserversearchorder -ne $null } | format-table description, dnsserversearchorder, dnsdomain, index, IPAddress, IPSubnet
